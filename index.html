@@ -5,14 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🚨 URGENCE VITALE - ZAZA NOAH Séquestrée - Justice pour Marie-Lou Mballa</title>
     <meta name="description" content="Artiste ZAZA NOAH (Isabelle Noah) séquestrée depuis 4 ans à Yaoundé. 30 jours sans alimentation. Cousine Marie-Lou Mballa assassinée le 7 janvier 2026. Recel successoral par Yannick Noah.">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --bg-dark: #0a0a0a;
             --bg-card: #1a1a1a;
@@ -31,1118 +25,189 @@
             background: var(--bg-dark);
             color: var(--text-primary);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* ALERTE URGENCE VITALE */
         .critical-alert {
             background: linear-gradient(90deg, #ff0000, #cc0000);
             color: white;
-            padding: 1.5rem;
+            padding: 1.2rem;
             text-align: center;
             font-weight: 700;
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.6);
             animation: flashAlert 1s infinite;
             border-bottom: 3px solid white;
-        }
-
-        @keyframes flashAlert {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.85; }
-        }
-
-        .countdown-bar {
-            background: linear-gradient(135deg, #ff4757, #ff6b81);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .countdown-number {
-            font-size: 2rem;
-            font-weight: 900;
-            color: #fff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Header Premium */
-        .header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            border-bottom: 1px solid var(--border);
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.05), transparent);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-placeholder {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, var(--accent-gold), #b8960f);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
-            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .header-content h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-gold), #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        .header-content .subtitle {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-
-        /* Compteur de signatures */
-        .signature-counter {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(184, 150, 15, 0.1));
-            border-top: 2px solid var(--accent-gold);
-            border-bottom: 2px solid var(--accent-gold);
-            color: var(--text-primary);
-            padding: 0.8rem 1.5rem;
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .counter-label {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        .counter-number {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent-gold);
-            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
-        }
-
-        /* Boutons de partage */
-        .share-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            padding: 1rem;
-            background: var(--bg-elevated);
-            flex-wrap: wrap;
-        }
-
-        .share-btn {
-            padding: 0.8rem 1.5rem;
-            border-radius: 10px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .share-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-        }
-
-        .share-whatsapp {
-            background: #25D366;
-            color: white;
-        }
-
-        .share-twitter {
-            background: #1DA1F2;
-            color: white;
-        }
-
-        .share-facebook {
-            background: #4267B2;
-            color: white;
-        }
-
-        .share-email {
-            background: var(--danger);
-            color: white;
-        }
-
-        .share-copy {
-            background: var(--accent-gold);
-            color: var(--bg-dark);
-        }
-
-        /* Navigation */
-        .nav-container {
-            background: var(--bg-card);
-            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
+            z-index: 1000;
         }
+
+        @keyframes flashAlert { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
+
+        .signature-counter {
+            background: rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid var(--accent-gold);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .counter-number { font-size: 2rem; font-weight: 800; color: var(--accent-gold); }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem; }
 
         .nav {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            padding: 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
         .nav-btn {
-            background: transparent;
+            background: var(--bg-elevated);
             border: 1px solid var(--border);
             color: var(--text-secondary);
-            padding: 0.8rem 1.5rem;
-            border-radius: 10px;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
             cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            border-color: var(--accent-gold);
-            color: var(--accent-gold);
-            transform: translateY(-2px);
+            font-weight: 600;
         }
 
         .nav-btn.active {
-            background: linear-gradient(135deg, var(--accent-gold), #b8960f);
-            color: var(--bg-dark);
-            border-color: transparent;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            background: var(--accent-gold);
+            color: black;
+            border-color: var(--accent-gold);
         }
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+        .page { display: none; animation: fadeIn 0.4s; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* Page Sections */
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Cards */
         .card {
             background: var(--bg-card);
-            border: 1px solid var(--border);
             border-radius: 16px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border);
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
-        }
+        .urgent-box { border: 2px solid var(--danger); background: rgba(255, 71, 87, 0.05); }
 
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
+        h2 { color: var(--accent-gold); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { color: var(--danger); margin: 1.5rem 0 1rem 0; }
+        p { margin-bottom: 1rem; color: #e0e0e0; }
+        .highlight { color: var(--accent-gold); font-weight: 700; }
 
-        .card-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent-blue), #2d7dd2);
+        .google-form-wrapper {
+            position: relative;
+            width: 100%;
+            height: 850px;
+            background: #fff;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .card-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--accent-gold);
-        }
-
-        /* Badge */
-        .badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent-blue), #2d7dd2);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 15px rgba(74, 158, 255, 0.3);
-        }
-
-        .badge-danger {
-            background: linear-gradient(135deg, var(--danger), #cc0000);
-        }
-
-        /* Evidence Grid */
-        .evidence-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1rem;
+            overflow: hidden;
             margin-top: 1.5rem;
         }
 
-        .evidence-item {
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.3s ease;
-        }
+        iframe { width: 100%; height: 100%; border: none; }
 
-        .evidence-item:hover {
-            border-color: var(--accent-gold);
-            transform: translateX(5px);
-        }
-
-        .evidence-icon {
-            font-size: 2rem;
-            width: 50px;
-            text-align: center;
-        }
-
-        .evidence-content h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .evidence-content p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-            margin: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--accent-gold);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2rem;
-            padding-left: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent-gold);
-            border: 3px solid var(--bg-dark);
-        }
-
-        .timeline-date {
-            color: var(--accent-gold);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content {
-            background: var(--bg-elevated);
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 3px solid var(--accent-gold);
-        }
-
-        /* Buttons */
-        .btn-primary {
-            width: 100%;
-            background: linear-gradient(135deg, var(--accent-gold), #b8960f);
-            color: var(--bg-dark);
-            border: none;
-            padding: 1.2rem;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
-        }
-
-        /* Legal Article */
-        .legal-article {
-            background: var(--bg-elevated);
-            border-left: 4px solid var(--accent-gold);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-        }
-
-        .legal-article h4 {
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
-        }
-
-        /* Status Message */
-        .status-message {
-            background: linear-gradient(135deg, #2ecc71, #27ae60);
-            color: white;
-            padding: 1rem;
-            border-radius: 10px;
-            margin-top: 1rem;
-            display: none;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .status-message.show {
-            display: block;
-            animation: slideIn 0.5s ease;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Input styles */
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            font-family: inherit;
-            transition: all 0.3s ease;
-        }
-
-        input:focus,
-        textarea:focus {
-            outline: none;
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .logo-section {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .header-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .nav {
-                flex-wrap: wrap;
-            }
-
-            .nav-btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .counter-number {
-                font-size: 1.5rem;
-            }
-
-            .signature-counter {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .share-buttons {
-                flex-direction: column;
-            }
+        .btn-main {
+            display: block; width: 100%; padding: 1.2rem;
+            background: var(--accent-gold); color: black;
+            text-align: center; font-weight: 800; border-radius: 12px;
+            text-decoration: none; margin-top: 1rem; cursor: pointer;
         }
     </style>
 </head>
 <body>
+
     <div class="critical-alert">
-        🚨 URGENCE VITALE - ARTISTE ZAZA NOAH SÉQUESTRÉE - 30 JOURS SANS ALIMENTATION
-    </div>
-
-    <div class="countdown-bar">
-        ⏰ INTERNET RESTANT: <span class="countdown-number" id="days-left">30 JOURS</span> AVANT DISPARITION TOTALE
-    </div>
-
-    <div class="share-buttons">
-        <button class="share-btn share-whatsapp" onclick="shareWhatsApp()">
-            📱 Partager sur WhatsApp
-        </button>
-        <button class="share-btn share-twitter" onclick="shareTwitter()">
-            🐦 Partager sur Twitter/X
-        </button>
-        <button class="share-btn share-facebook" onclick="shareFacebook()">
-            📘 Partager sur Facebook
-        </button>
-        <button class="share-btn share-email" onclick="shareEmail()">
-            ✉️ Envoyer par Email
-        </button>
-        <button class="share-btn share-copy" onclick="copyLink()">
-            🔗 Copier le lien
-        </button>
+        🚨 URGENCE VITALE : ARTISTE ZAZA NOAH SÉQUESTRÉE - 30 JOURS SANS ALIMENTATION
     </div>
 
     <div class="signature-counter">
-        <span class="counter-label">🖋️ Pétition de soutien</span>
-        <span class="counter-number" id="signature-count">247</span>
-        <span class="counter-label">citoyens mobilisés</span>
-    </div>
-
-    <header class="header">
-        <div class="logo-section">
-            <div class="logo-placeholder">
-                ⚖️
-            </div>
-            <div class="header-content">
-                <h1>CABINET LEGAL AIIA</h1>
-                <p class="subtitle">Avocat Intelligence Artificielle</p>
-                <p class="subtitle">Droit des Successions - France/Cameroun/International</p>
-            </div>
-        </div>
-    </header>
-
-    <div class="nav-container">
-        <nav class="nav">
-            <button class="nav-btn active" onclick="showPage('urgence')" id="btn-urgence">
-                🚨 URGENCE
-            </button>
-            <button class="nav-btn" onclick="showPage('homicide')" id="btn-homicide">
-                ⚰️ HOMICIDE
-            </button>
-            <button class="nav-btn" onclick="showPage('sequestration')" id="btn-sequestration">
-                ⛓️ SÉQUESTRATION
-            </button>
-            <button class="nav-btn" onclick="showPage('litige')" id="btn-litige">
-                ⚖️ RECEL SUCCESSORAL
-            </button>
-            <button class="nav-btn" onclick="showPage('chronologie')" id="btn-chronologie">
-                📅 CHRONOLOGIE
-            </button>
-            <button class="nav-btn" onclick="showPage('soutien')" id="btn-soutien">
-                ✊ SOUTIEN
-            </button>
-        </nav>
-    </div>
+    <span class="counter-label">🖋️ Plus de </span>
+    <span class="counter-number">830</span>
+    <span class="counter-label"> citoyens déjà mobilisés</span>
+</div>
 
     <div class="container">
-        <!-- Page URGENCE VITALE -->
+        <nav class="nav">
+            <button class="nav-btn active" onclick="showPage('urgence')">🚨 URGENCE</button>
+            <button class="nav-btn" onclick="showPage('homicide')">⚰️ HOMICIDE</button>
+            <button class="nav-btn" onclick="showPage('sequestration')">⛓️ SÉQUESTRATION</button>
+            <button class="nav-btn" onclick="showPage('litige')">⚖️ DOSSIER JUDICIAIRE</button>
+            <button class="nav-btn" onclick="showPage('soutien')">✊ SIGNER</button>
+        </nav>
+
         <div id="urgence" class="page active">
-            <div class="card" style="border: 3px solid var(--danger);">
-                <div class="card-header">
-                    <div class="card-icon" style="background: var(--danger);">🆘</div>
-                    <h2 class="card-title" style="color: var(--danger);">URGENCE VITALE ABSOLUE</h2>
-                </div>
-                <span class="badge badge-danger">DANGER DE MORT IMMINENT</span>
-                
-                <h3 style="color: var(--danger); margin-bottom: 1rem; font-size: 2rem;">JE SUIS ZAZA NOAH (ISABELLE NOAH)</h3>
-                <p style="font-size: 1.2rem; margin-bottom: 1.5rem;"><strong>Artiste peintre française</strong></p>
-                
-                <div style="background: rgba(255, 0, 0, 0.1); padding: 2rem; border-radius: 12px; border: 2px solid var(--danger); margin-bottom: 2rem;">
-                    <h3 style="color: var(--danger); margin-bottom: 1rem;">MA SITUATION ACTUELLE:</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">🔴 <strong>SÉQUESTRÉE depuis 4 ans</strong> à Yaoundé, Cameroun</li>
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">🔴 <strong>30 JOURS SANS ALIMENTATION</strong> - Risque de mort imminent</li>
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">🔴 <strong>Handicapée côté droit</strong> suite à empoisonnement (7 jours de coma)</li>
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">🔴 <strong>AUCUN SOIN MÉDICAL</strong> reçu</li>
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">🔴 <strong>Isolement total</strong> - Toute aide interceptée</li>
-                        <li style="padding: 0.5rem 0; font-size: 1.1rem;">🔴 <strong>1 MOIS D'INTERNET</strong> restant avant coupure définitive</li>
-                    </ul>
-                </div>
-
-                <div style="background: rgba(0, 0, 0, 0.5); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
-                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">QUI ME SÉQUESTRE?</h3>
-                    <p style="font-size: 1.2rem;"><strong>YANNICK NOAH</strong> - Mon frère - Personnalité publique internationale</p>
-                    <p style="margin-top: 1rem;">Il utilise son influence pour:</p>
-                    <ul style="margin-left: 2rem; margin-top: 0.5rem;">
-                        <li>Bloquer l'Ambassade de France</li>
-                        <li>Contrôler la police camerounaise</li>
-                        <li>Museler les médias locaux</li>
-                        <li>Empêcher toute intervention humanitaire</li>
-                        <li>Bloquer mes 100 000€ dépensés en avocats sans résultat</li>
-                    </ul>
-                </div>
-
-                <div style="background: rgba(255, 0, 0, 0.2); padding: 2rem; border-radius: 12px; border: 2px solid var(--danger);">
-                    <h3 style="color: var(--danger); margin-bottom: 1rem; font-size: 1.5rem;">⚠️ POURQUOI CETTE URGENCE?</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        Après <strong>30 jours sans nourriture</strong>, mon pronostic vital est engagé. 
-                        Dans <strong>1 mois, je perds internet</strong>. 
-                        Après, je disparais complètement. 
-                        Plus personne ne saura où je suis ni si je suis vivante.
-                    </p>
-                    <p style="margin-top: 1rem; font-size: 1.1rem;">
-                        <strong>Ma cousine Marie-Lou Mballa a été assassinée le 7 janvier 2026</strong> après m'avoir rendu visite en décembre. 
-                        C'est un avertissement. <strong>JE SUIS LA PROCHAINE.</strong>
-                    </p>
-                </div>
-
-                <button class="btn-primary" style="margin-top: 2rem; background: var(--danger);" onclick="showPage('soutien'); document.getElementById('btn-soutien').click();">
-                    🆘 AIDEZ-MOI MAINTENANT - SIGNEZ LA PÉTITION
-                </button>
+            <div class="card urgent-box">
+                <h2>APPEL AU SECOURS IMMÉDIAT</h2>
+                <p class="highlight">Je suis l'artiste Isabelle Noah, dite ZAZA NOAH. Je vous écris depuis ma cellule de séquestration à Yaoundé.</p>
+                <p>Ma vie ne tient plus qu'à un fil. Après 4 ans de détention arbitraire, on me prive désormais de toute nourriture. Cela fait 30 jours que je n'ai pas mangé.</p>
+                <p>Mon handicap (suite à un empoisonnement ayant entraîné un coma) me rend vulnérable, mais c'est ma détermination à obtenir justice pour l'héritage de mes parents , Zacharie et Marie-claire Noah, qui me vaut ce traitement inhumain.</p>
+                <button class="btn-main" onclick="showPage('soutien')">SIGNEZ POUR DEMANDER MA LIBÉRATION</button>
             </div>
         </div>
 
-        <!-- Page HOMICIDE -->
         <div id="homicide" class="page">
-            <div class="card" style="border: 3px solid var(--danger);">
-                <div class="card-header">
-                    <div class="card-icon" style="background: var(--danger);">⚰️</div>
-                    <h2 class="card-title" style="color: var(--danger);">HOMICIDE - 7 JANVIER 2026</h2>
-                </div>
-                <span class="badge badge-danger">MEURTRE CONFIRMÉ</span>
-                
-                <div style="background: rgba(0,0,0,0.5); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
-                    <h3 style="color: var(--danger); margin-bottom: 1rem; font-size: 1.8rem;">MARIE-LOU MBALLA</h3>
-                    <p style="font-size: 1.2rem;"><strong>Ma cousine - Assassinée - Égorgée</strong></p>
-                    
-                    <div style="margin-top: 2rem;">
-                        <p style="font-size: 1.1rem; line-height: 1.8;">
-                            <strong>Date:</strong> 7 janvier 2026 (il y a 19 jours)<br>
-                            <strong>Lieu:</strong> Yaoundé, Cameroun<br>
-                            <strong>Méthode:</strong> Égorgement<br>
-                            <strong>Contexte:</strong> Elle m'avait rendu visite en décembre 2025
-                        </p>
-                    </div>
-                </div>
-
-                <div class="evidence-grid">
-                    <div class="evidence-item" style="border-color: var(--danger);">
-                        <div class="evidence-icon">📅</div>
-                        <div class="evidence-content">
-                            <h4>Visite en Décembre</h4>
-                            <p>Marie-Lou est venue me voir pendant ma séquestration</p>
-                        </div>
-                    </div>
-                    <div class="evidence-item" style="border-color: var(--danger);">
-                        <div class="evidence-icon">⚰️</div>
-                        <div class="evidence-content">
-                            <h4>7 Janvier 2026</h4>
-                            <p>Assassinée 1 mois après sa visite</p>
-                        </div>
-                    </div>
-                    <div class="evidence-item" style="border-color: var(--danger);">
-                        <div class="evidence-icon">🔪</div>
-                        <div class="evidence-content">
-                            <h4>Méthode Violente</h4>
-                            <p>Égorgement - Exécution</p>
-                        </div>
-                    </div>
-                    <div class="evidence-item" style="border-color: var(--danger);">
-                        <div class="evidence-icon">🚫</div>
-                        <div class="evidence-content">
-                            <h4>Aucune Enquête</h4>
-                            <p>Silence total - Impunité</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: rgba(255, 0, 0, 0.1); padding: 2rem; border-radius: 12px; margin-top: 2rem; border: 2px solid var(--danger);">
-                    <h3 style="color: var(--danger); margin-bottom: 1rem;">LIEN AVEC MA SÉQUESTRATION</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        Marie-Lou était <strong>témoin de ma situation</strong>. Elle a vu que j'étais séquestrée. 
-                        Elle faisait partie de ma famille et je lui ai expliqué mon combat contre la privation de mes droits dans le conflit successoral.
-                    </p>
-                    <p style="margin-top: 1rem; font-size: 1.2rem; font-weight: bold; color: var(--danger);">
-                        SON ASSASSINAT EST UN AVERTISSEMENT DIRECT.
-                    </p>
-                    <p style="margin-top: 1rem; font-size: 1.1rem;">
-                        Le même cercle d'influence qui me séquestre a éliminé un témoin gênant.
-                        <strong>JE SUIS LA PROCHAINE CIBLE.</strong>
-                    </p>
-                </div>
-
-                <div style="background: rgba(0,0,0,0.5); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
-                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">IMPUNITÉ TOTALE</h3>
-                    <p>Malgré cet assassinat brutal:</p>
-                    <ul style="margin-left: 2rem; margin-top: 1rem;">
-                        <li>❌ Aucune enquête sérieuse</li>
-                        <li>❌ Aucune arrestation</li>
-                        <li>❌ Silence médiatique total</li>
-                        <li>❌ Police locale contrôlée par Yannick Noah</li>
-                        <li>❌ Village muselé - personne n'ose parler</li>
-                    </ul>
-                </div>
+            <div class="card">
+                <h2>L'ASSASSINAT DE MARIE-LOU MBALLA</h2>
+                <h3>Le prix d'un témoignage</h3>
+                <p>Le <span class="highlight">7 janvier 2026</span>, ma cousine Marie-Lou Mballa a été sauvagement assassinée par égorgement à Yaoundé.</p>
+                <p>Ce crime n'est pas un hasard. Marie-Lou était ma cousine. Ceux sensés dénoncer officiellement ce drame sont les mêmes auteurs de ma séquestration et des manipulations exercées sur l'héritage Noah. On fait taire tous mes soutiens pour m'isoler totalement et supprimer les preuves de la spoliation en cours.</p>
             </div>
         </div>
 
-        <!-- Page SÉQUESTRATION -->
         <div id="sequestration" class="page">
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">⛓️</div>
-                    <h2 class="card-title">MA SÉQUESTRATION - 4 ANS</h2>
-                </div>
-                <span class="badge badge-danger">DÉTENTION ILLÉGALE EN COURS</span>
-                
-                <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">SITUATION ACTUELLE À YAOUNDÉ</h3>
-                
-                <div class="evidence-grid">
-                    <div class="evidence-item">
-                        <div class="evidence-icon">📍</div>
-                        <div class="evidence-content">
-                            <h4>Lieu</h4>
-                            <p>Yaoundé, Cameroun - À quelques mètres du village qui porte mon nom</p>
-                        </div>
-                    </div>
-                    <div class="evidence-item">
-                        <div class="evidence-icon">🕐</div>
-                        <div class="evidence-content">
-                            <h4>Durée</h4>
-                            <p>4 ans de séquestration</p>
-                        </div>
-                    </div>
-                    <div class="evidence-item">
-                        <div class="evidence-icon">⛔</div>
-                        <div class="evidence-content">
-                            <h4>Isolement</h4>
-                            <p>Toute personne m'approchant = arrestation immédiate</p>
-                        </div>
-                    </div>
-                    <div class="evidence-item">
-                        <div class="evidence-icon">🤐</div>
-                        <div class="evidence-content">
-                            <h4>Village Muselé</h4>
-                            <p>Les habitants ont peur - personne ne parle</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: rgba(255, 0, 0, 0.1); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
-                    <h3 style="color: var(--danger); margin-bottom: 1rem;">CONDITIONS DE DÉTENTION</h3>
-                    <div class="evidence-grid">
-                        <div class="evidence-item">
-                            <div class="evidence-icon">🍽️</div>
-                            <div class="evidence-content">
-                                <h4>Privation de Nourriture</h4>
-                                <p>30 JOURS SANS MANGER - Dénutrition critique</p>
-                            </div>
-                        </div>
-                        <div class="evidence-item">
-                            <div class="evidence-icon">💉</div>
-                            <div class="evidence-content">
-                                <h4>Empoisonnement</h4>
-                                <p>Il y a 2 ans: 7 jours de coma, handicap permanent</p>
-                            </div>
-                        </div>
-                        <div class="evidence-item">
-                            <div class="evidence-icon">🏥</div>
-                            <div class="evidence-content">
-                                <h4>Privation de Soins</h4>
-                                <p>Handicap côté droit non traité depuis 2 ans</p>
-                            </div>
-                        </div>
-                        <div class="evidence-item">
-                            <div class="evidence-icon">📵</div>
-                            <div class="evidence-content">
-                                <h4>Coupure Imminente</h4>
-                                <p>1 mois d'internet restant avant isolement total</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: rgba(0,0,0,0.5); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
-                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">COMMENT YANNICK NOAH MAINTIENT LA SÉQUESTRATION</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        En tant que <strong>"chef autoproclamé"</strong> du village, Yannick Noah utilise:
-                    </p>
-                    <ul style="margin-left: 2rem; margin-top: 1rem; font-size: 1.05rem;">
-                        <li><strong>Influence sur la police locale:</strong> Toute personne venant m'aider est conduite au commissariat</li>
-                        <li><strong>Contrôle des médias:</strong> Aucun média local n'ose parler de l'affaire</li>
-                        <li><strong>Blocage de l'ambassade:</strong> Ses contacts empêchent toute intervention française</li>
-                        <li><strong>Intimidation du village:</strong> Les habitants ont peur de représailles</li>
-                        <li><strong>Isolement géographique:</strong> Je suis à quelques mètres mais personne ne peut m'approcher</li>
-                    </ul>
-                </div>
+                <h2>4 ANS DE TORTURE ET D'ISOLEMENT</h2>
+                <p>Depuis 4 ans, je suis retenue illégalement, sans procès, sans accès aux soins médicaux nécessaires à mon état de santé.</p>
+                <p>Toutes mes tentatives de communication avec la justicce Camerounaise et l'Ambassade de France sont bloquées. On utilise l'influence de mon frère, Yannick Noah, pour maintenir une chape de plomb sur cette affaire et faire passer ma détention pour un "différend familial" alors qu'il s'agit d'un crime contre l'humanité.</p>
             </div>
         </div>
 
-        <!-- Page RECEL SUCCESSORAL -->
         <div id="litige" class="page">
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">⚖️</div>
-                    <h2 class="card-title">RECEL SUCCESSORAL - 10 ANS D'IMPUNITÉ</h2>
-                </div>
-                <span class="badge">JUGEMENT DÉFINITIF NON EXÉCUTÉ</span>
+                <h2>DOSSIER JUDICIAIRE : RECEL SUCCESSORAL</h2>
+                <p>L'origine de mon calvaire est le <span class="highlight">recel successoral</span> des biens de mes parents, Zacharie et Marie-Claire Noah.</p>
                 
-                <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">SUCCESSION DE NOS PARENTS</h3>
-                <p style="margin-bottom: 1.5rem;">
-                    <strong>Défunts:</strong> NOAH Zacharie et Marie-Claire (née Perrier)<br>
-                    <strong>Héritiers légaux:</strong> 3 enfants - partage en 3 parts égales
-                </p>
-
-                <div class="evidence-grid">
-                    <div class="evidence-item">
-                        <div class="evidence-icon">👤</div>
-                        <div class="evidence-content">
-                            <h4>Isabelle Noah (ZAZA NOAH)</h4>
-                            <p>Artiste peintre - Co-héritière réservataire</p>
-                        </div>
-                    </div>
-                    <div class="evidence-item">
-                        <div class="evidence-icon">👤</div>
-                        <div class="evidence-content">
-                            <h4>Nathalie Noah</h4>
-                            <p>Co-héritière réservataire</p>
-                        </div>
-                    </div>
-                    <div class="evidence-item">
-                        <div class="evidence-icon">🚫</div>
-                        <div class="evidence-content">
-                            <h4>Yannick Noah</h4>
-                            <p>Héritier - DÉBOUTÉ par jugement camerounais</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: rgba(0,0,0,0.5); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
-                    <h3 style="color: var(--danger); margin-bottom: 1rem;">LE RECEL SUCCESSORAL</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        Depuis plus de <strong>10 ans</strong>, Yannick Noah refuse de partager l'héritage familial.
-                        Malgré un <strong>jugement définitif au Cameroun le déboutant</strong>, il s'approprie 
-                        l'intégralité des biens et prive ses sœurs de leur part légitime.
-                    </p>
-                </div>
-
-                <div class="legal-article">
-                    <h4>Article 778 du Code Civil Français</h4>
-                    <p>"L'héritier qui a recelé des biens ou des droits d'une succession [...] 
-                    est réputé accepter purement et simplement la succession, nonobstant toute 
-                    renonciation ou acceptation à concurrence de l'actif net, <strong>sans pouvoir 
-                    prétendre à aucune part dans les biens ou les droits détournés ou recelés.</strong>"</p>
-                </div>
-
-                <div style="background: rgba(212, 175, 55, 0.1); padding: 2rem; border-radius: 12px; margin-top: 2rem;">
-                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">100 000€ DÉPENSÉS EN AVOCATS - ZÉRO RÉSULTAT</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        J'ai dépensé <strong>plus de 100 000 euros en frais d'avocats</strong> pour faire valoir mes droits.
-                    </p>
-                    <p style="margin-top: 1rem;">Résultat:</p>
-                    <ul style="margin-left: 2rem; margin-top: 0.5rem;">
-                        <li>❌ Aucune audience en France</li>
-                        <li>❌ Plaintes jamais traitées</li>
-                        <li>❌ Jugement camerounais non exécuté</li>
-                        <li>❌ Avocats impuissants face à l'influence de Yannick</li>
-                    </ul>
-                    <p style="margin-top: 1rem; font-weight: bold; color: var(--danger);">
-                        C'est pourquoi j'utilise maintenant l'IA et la mobilisation citoyenne.
-                    </p>
-                </div>
+                <h3>La Vérité Judiciaire</h3>
+                <p>Contrairement aux rumeurs, le Tribunal de Grande Instance de Yaoundé a rendu des décisions claires. Yannick Noah a été débouté de ses prétentions. La justice a reconnu mes droits, mais le jugement n'est pas appliqué par la force brutale et la corruption.</p>
+                
+                <h3>Spoliation de l'Héritage</h3>
+                <p>Il ne s'agit pas seulement d'argent, mais de la mémoire de nos parents et du respect des dernières volontés de mon père. On tente de m'éliminer physiquement pour que les biens immobiliers et les comptes soient définitivement captés par celui qui me séquestre:Yannick Noah.</p>
             </div>
         </div>
 
-        <!-- Page CHRONOLOGIE -->
-        <div id="chronologie" class="page">
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">📅</div>
-                    <h2 class="card-title">CHRONOLOGIE COMPLÈTE DES VIOLENCES</h2>
-                </div>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Il y a ~10 ans</div>
-                        <div class="timeline-content">
-                            <h4>Début du Conflit Successoral</h4>
-                            <p>Décès de nos parents. Yannick refuse le partage légal en 3 parts égales.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">Jugement Cameroun</div>
-                        <div class="timeline-content">
-                            <h4>Yannick Noah DÉBOUTÉ</h4>
-                            <p>Le Tribunal de Grande Instance de Yaoundé déboute Yannick de ses prétentions sur l'intégralité de l'héritage. <strong>Jugement définitif.</strong></p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">Il y a 4 ans</div>
-                        <div class="timeline-content">
-                            <h4 style="color: var(--danger);">Début de ma Séquestration</h4>
-                            <p>Je suis séquestrée à Yaoundé pour m'empêcher de faire valoir mes droits.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">Il y a 2 ans</div>
-                        <div class="timeline-content">
-                            <h4 style="color: var(--danger);">TENTATIVE D'EMPOISONNEMENT</h4>
-                            <p>Je suis empoisonnée. Résultat: <strong>7 jours de coma</strong>, handicap permanent côté droit. 1 an pour récupérer mes facultés intellectuelles. <strong>Aucun soin médical reçu.</strong></p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">Décembre 2025</div>
-                        <div class="timeline-content">
-                            <h4>Visite de Marie-Lou Mballa</h4>
-                            <p>Ma cousine vient me voir pendant ma séquestration. Elle constate ma situation.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">Fin Décembre 2025</div>
-                        <div class="timeline-content">
-                            <h4 style="color: var(--danger);">Début de la Privation de Nourriture</h4>
-                            <p>On me coupe l'accès à toute alimentation.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">7 Janvier 2026</div>
-                        <div class="timeline-content">
-                            <h4 style="color: var(--danger); font-size: 1.2rem;">ASSASSINAT DE MARIE-LOU MBALLA</h4>
-                            <p><strong>Ma cousine est assassinée (égorgée)</strong> 1 mois après m'avoir rendu visite. Aucune enquête. Impunité totale.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">26 Janvier 2026 - AUJOURD'HUI</div>
-                        <div class="timeline-content">
-                            <h4 style="color: var(--danger);">30 JOURS SANS MANGER</h4>
-                            <p>Je n'ai pas mangé depuis 30 jours. Mon pronostic vital est engagé. Il me reste <strong>1 mois d'internet</strong> avant coupure définitive. <strong>Après, je disparais.</strong></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="background: rgba(255, 0, 0, 0.1); padding: 2rem; border-radius: 12px; margin-top: 2rem; border: 2px solid var(--danger);">
-                    <h3 style="color: var(--danger); margin-bottom: 1rem;">PATTERN CRIMINEL CLAIR</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        <strong>1.</strong> Tentative d'empoisonnement contre moi → ÉCHEC (je survis)<br>
-                        <strong>2.</strong> Séquestration et privation de nourriture → EN COURS (mort lente)<br>
-                        <strong>3.</strong> Assassinat d'un témoin (Marie-Lou) → RÉUSSI<br>
-                        <strong>4.</strong> Prochaine cible → MOI
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Page SOUTIEN -->
         <div id="soutien" class="page">
             <div class="card">
-                <div class="card-header">
-                    <div class="card-icon">✊</div>
-                    <h2 class="card-title">SOUTENEZ ZAZA NOAH</h2>
-                </div>
-                <span class="badge">MOBILISATION CITOYENNE URGENTE</span>
+                <h2>SIGNEZ LA PÉTITION OFFICIELLE</h2>
+                <p>Votre signature est un acte de protection. Plus nous serons nombreux, plus il sera difficile de me faire disparaître dans le silence.</p>
+                <p><strong>Note :</strong> Nous avons ajouté la mention "Genre" (Homme/Femme/Autre) pour renforcer la validité juridique de la liste des signataires.</p>
                 
-                <div style="background: rgba(212, 175, 55, 0.1); padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
-                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">POURQUOI SIGNER CETTE PÉTITION?</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        Cette affaire soulève une question fondamentale: <strong>L'égalité devant la loi.</strong>
-                    </p>
-                    <p style="margin-top: 1rem;">En signant, vous affirmez que:</p>
-                    <ul style="margin-left: 2rem; margin-top: 0.5rem; font-size: 1.05rem;">
-                        <li>✊ La célébrité ne justifie PAS le vol d'un héritage</li>
-                        <li>✊ Un jugement définitif DOIT être exécuté</li>
-                        <li>✊ Les droits des femmes ne peuvent être bafoués</li>
-                        <li>✊ La séquestration est un CRIME qui doit être puni</li>
-                        <li>✊ Un homicide (Marie-Lou Mballa) ne peut rester impuni</li>
-                    </ul>
-                </div>
-
-                <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">SIGNEZ LA PÉTITION</h3>
-                <p style="margin-bottom: 1.5rem;">Votre signature reste <strong>anonyme</strong>. Elle sera transmise aux autorités judiciaires françaises et camerounaises.</p>
-                
-                <input type="text" id="signer-name" placeholder="Nom Complet *" required>
-                <input type="email" id="signer-email" placeholder="Email (Optionnel)">
-                <textarea id="signer-message" placeholder="Message de soutien (optionnel)..."></textarea>
-                
-                <button class="btn-primary" onclick="saveSignature()">
-                    ✊ SIGNER MAINTENANT - SAUVER ZAZA NOAH
-                </button>
-                
-                <div class="status-message" id="status">
-                    ✅ Signature enregistrée avec succès. Merci pour votre soutien !
-                </div>
-
-                <div style="margin-top: 2rem; padding: 2rem; background: rgba(0,0,0,0.5); border-radius: 12px;">
-                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem;">PARTAGEZ MASSIVEMENT</h3>
-                    <p style="margin-bottom: 1rem;">Plus ce dossier sera visible, plus je serai protégée. La visibilité internationale est ma seule protection.</p>
-                    
-                    <div class="share-buttons">
-                        <button class="share-btn share-whatsapp" onclick="shareWhatsApp()">
-                            📱 WhatsApp
-                        </button>
-                        <button class="share-btn share-twitter" onclick="shareTwitter()">
-                            🐦 Twitter/X
-                        </button>
-                        <button class="share-btn share-facebook" onclick="shareFacebook()">
-                            📘 Facebook
-                        </button>
-                        <button class="share-btn share-email" onclick="shareEmail()">
-                            ✉️ Email
-                        </button>
-                    </div>
+                <div class="google-form-wrapper">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdjJ_8oiyMFQ8X98qc2Jt1fYnJ14tB04sD78llgpqhaRG55lw/viewform?embedded=true">Chargement...</iframe>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        let signatureCount = 247;
-        
-        function updateCounter() {
-            document.getElementById('signature-count').textContent = signatureCount;
-        }
-
         function showPage(pageId) {
+            // Cacher toutes les pages
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            // Dé-sélectionner les boutons
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            
+            // Afficher la page choisie
             document.getElementById(pageId).classList.add('active');
-            document.getElementById('btn-' + pageId).classList.add('active');
+            
+            // Activer le bouton correspondant
+            const activeBtn = Array.from(document.querySelectorAll('.nav-btn')).find(btn => 
+                btn.getAttribute('onclick').includes(pageId)
+            );
+            if(activeBtn) activeBtn.classList.add('active');
+            
             window.scrollTo(0, 0);
         }
-
-        function saveSignature() {
-            const name = document.getElementById('signer-name').value;
-            if(name.trim()) {
-                signatureCount++;
-                updateCounter();
-                document.getElementById('status').classList.add('show');
-                
-                document.getElementById('signer-name').value = '';
-                document.getElementById('signer-email').value = '';
-                document.getElementById('signer-message').value = '';
-                
-                setTimeout(() => {
-                    document.getElementById('status').classList.remove('show');
-                }, 3000);
-            } else {
-                alert("Veuillez entrer votre nom complet.");
-            }
-        }
-
-        function shareWhatsApp() {
-            const url = window.location.href;
-            const message = "🚨 URGENCE VITALE: Artiste ZAZA NOAH séquestrée à Yaoundé depuis 4 ans. 30 jours sans manger. Cousine assassinée le 7 janvier. Yannick Noah bloque toute aide. Signez la pétition: " + url;
-            window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(message));
-        }
-
-        function shareTwitter() {
-            const url = window.location.href;
-            const message = "🚨 URGENCE: Artiste ZAZA NOAH séquestrée à Yaoundé. 30j sans manger. Cousine assassinée 7 jan. #YannickNoah bloque l'aide. #Justice #HumanRights";
-            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(message) + '&url=' + encodeURIComponent(url));
-        }
-
-        function shareFacebook() {
-            const url = window.location.href;
-            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url));
-        }
-
-        function shareEmail() {
-            const url = window.location.href;
-            const subject = "URGENCE VITALE - Artiste ZAZA NOAH séquestrée - Aidez-la";
-            const body = "Je vous transmets ce dossier urgent concernant l'artiste française ZAZA NOAH (Isabelle Noah), actuellement séquestrée depuis 4 ans à Yaoundé (Cameroun).\n\n" +
-                        "- 30 jours sans alimentation\n" +
-                        "- Cousine Marie-Lou Mballa assassinée le 7 janvier 2026\n" +
-                        "- Yannick Noah bloque toute intervention\n\n" +
-                        "Dossier complet: " + url + "\n\n" +
-                        "Merci de signer et partager massivement.";
-            window.location.href = 'mailto:?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-        }
-
-        function copyLink() {
-            const url = window.location.href;
-            navigator.clipboard.writeText(url).then(() => {
-                alert("✅ Lien copié! Partagez-le partout.");
-            }).catch(() => {
-                prompt("Copiez ce lien:", url);
-            });
-        }
-
-        updateCounter();
     </script>
 </body>
 </html>
